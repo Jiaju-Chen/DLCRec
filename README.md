@@ -9,7 +9,7 @@ We experiment on two real-world datasets, [MovieLens-10M](https://grouplens.org/
 
 ## Environment
 
-We use the same environment as [Llama Factory](https://github.com/hiyouga/LLaMA-Factory). You can also use the following to create a conda environment:
+We use the same environment as [Llama Factory](https://github.com/hiyouga/LLaMA-Factory). You can also use the following code to create a conda environment:
 
 ```
 conda env create -f llama_factory.yaml
@@ -22,6 +22,7 @@ conda env create -f llama_factory.yaml
 DLCRec decompose the diversity-oriented controllable recommendation into 3 specific sub-tasks: genre predicting (GP), genre filling (GF) and item predicting (IP). 
 
 To train each model, select the training and validation set and run "./train.sh".
+
 To infer each model, run
 ```
 python inference.py --test_data_path ./data/movie_sgcate/test_1000_nonum.json --base_model ../Meta-Llama-3-8B-Instruct/ --lora_weights ./model/movie_sgcate/ModelName  --result_json_data ./movie_sgcate_result/ModelName_GP1000gred.json --num_beams 1 --num_beam_groups 1 --do_sample False --batch_size 64
@@ -52,7 +53,7 @@ The user can select the control number of genres as they wish, and DLCRec propag
     ```
     python inference_controlGPnum.py --test_data_path ./data/movie_sgcate/test_1000_GP.json --base_model ../Meta-Llama-3-8B-Instruct/ --lora_weights ./model/movie_sgcate/GPModelName  --result_json_data ./movie_sgcate_result/GPModelName_5GP1000gred.json --num_beams 1 --num_beam_groups 1 --do_sample False --batch_size 64 --control_GPnum 5
     ```
-+ Second, we transfer format of task GP's output into the format of task GF's input. We should put the result file path into the file "./data/movie_sgcate/modifyGF_controlGP.py" and then run:
++ Second, we transfer format of task GP's output into the format of task GF's input. We put the result file path into the file "./data/movie_sgcate/modifyGF_controlGP.py" and then run:
     ```
     python ./data/movie_sgcate/modifyGF_controlGP.py
     ```
@@ -62,7 +63,7 @@ The user can select the control number of genres as they wish, and DLCRec propag
     ```
     python inference_controlGP.py --test_data_path ./data/movie_sgcate/test_1000_BERT_GF_controlGP.json --base_model ../Meta-Llama-3-8B-Instruct/ --lora_weights ./model/movie_sgcate/GFModelName  --result_json_data ./movie_sgcate_result/GFModelName_controlControlTarget_5GF1000gred.json --num_beams 1 --num_beam_groups 1 --do_sample False --batch_size 64 --control_GP ControlTarget
     ```
-+ Forth, we transform format of task GF's output into the format of task IP's input. We should put the result file path into the file "./data/movie_sgcate/modifyIP_controlGF.py" and then run:
++ Fourth, we transform format of task GF's output into the format of task IP's input. We put the result file path into the file "./data/movie_sgcate/modifyIP_controlGF.py" and then run:
     ```
     python ./data/movie_sgcate/modifyIP_controlGF.py
     ```
