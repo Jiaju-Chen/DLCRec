@@ -1,4 +1,4 @@
-from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
+from transformers import GenerationConfig, AutoTokenizer, AutoModelForCausalLM
 import transformers
 import torch
 import os
@@ -7,8 +7,8 @@ import json
 # os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 
 base_model = "../Meta-Llama-3-8B-Instruct/"
-tokenizer = LlamaTokenizer.from_pretrained(base_model)
-model = LlamaForCausalLM.from_pretrained(
+tokenizer = AutoTokenizer.from_pretrained(base_model)
+model = AutoModelForCausalLM.from_pretrained(
     base_model,
     torch_dtype=torch.float16,
     device_map="auto",
