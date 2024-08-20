@@ -99,7 +99,7 @@ dependencies:
       - packaging==24.0
       - pandas==2.2.1
       - parso==0.8.4
-      - peft==0.6.0
+      - peft==0.10.0
       - pexpect==4.9.0
       - pillow==10.3.0
       - prompt-toolkit==3.0.43
@@ -158,4 +158,3 @@ dependencies:
       - websockets==11.0.3
       - xxhash==3.4.1
       - yarl==1.9.4
-prefix: /home/hexngroup/chenjiaju/miniconda3/envs/llama_factory
