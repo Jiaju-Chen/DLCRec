@@ -34,7 +34,10 @@ To generate the embeddings of items for Grounding, run
 python ./data/movie_sgcate/generate_embedding.py
 ```
 
-To train each model, select the training and validation set and run "./train.sh".
+To train each model, select the training and validation set and run
+```
+bash ./train.sh
+```
 
 To infer each model, replace {ModelName} with the model directory and run
 ```
