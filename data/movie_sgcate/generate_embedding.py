@@ -4,7 +4,7 @@ import torch
 import os
 import math
 import json
-# os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 base_model = "../Meta-Llama-3-8B-Instruct/"
 tokenizer = AutoTokenizer.from_pretrained(base_model)
