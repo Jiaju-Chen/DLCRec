@@ -209,9 +209,11 @@ def instructions_control_GPnum(test_data, control_GPnum):
     # modify the control number in the instruction prompt
     pattern1 = r'the (\d+) most likely genres'
     pattern2 = r"Genre1, Genre2, ..., Genre(.*?)\""
+    pattern3 = r"Genre1\| Genre2\| ...\| Genre(.*?)\""
     instructions1 = [re.sub(pattern1, lambda match: f'the {control_GPnum} most likely genres', td['instruction']) for td in test_data]
     instructions2 = [re.sub(pattern2, lambda match: f'Genre1, Genre2, ..., Genre{control_GPnum}"', ins) for ins in instructions1]
-    return instructions2
+    instructions3 = [re.sub(pattern3, lambda match: f'Genre1| Genre2| ...| Genre{control_GPnum}"', ins) for ins in instructions2]
+    return instructions3
 
 if __name__ == "__main__":
     fire.Fire(main)
