@@ -1,6 +1,6 @@
 # DLCRec
 
-This is the code for DLCRec (DLCRec: A Novel Approach for Managing Diversity in LLM-Based Recommender Systems) for [WSDM 2025](https://www.wsdm-conference.org/2025/), a novel framework enables LLMs to output recommendations with varying user requests for diversity.
+This is the code for DLCRec ([DLCRec: A Novel Approach for Managing Diversity in LLM-Based Recommender Systems](https://arxiv.org/abs/2408.12470)) for [WSDM 2025](https://www.wsdm-conference.org/2025/), a novel framework enables LLMs to output recommendations with varying user requests for diversity.
 
 ![FIg1](./figures/framework.png "Framework")
 
@@ -27,7 +27,7 @@ conda env create -f llama_factory.yaml
 
 DLCRec decompose the diversity-oriented controllable recommendation into 3 specific sub-tasks: genre predicting (GP), genre filling (GF) and item predicting (IP). Let us take the Movie dataset for example.
 
-before running each task, please kindly assign the GPU number in the code file!
+before running each task, please kindly assign the GPU number in the code file! The training and inference are operated on a single 80GB A100. Reduce the batchsize if memory is not enough.
 
 To generate the embeddings of items for Grounding, run
 ```
